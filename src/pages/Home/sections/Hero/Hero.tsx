@@ -47,13 +47,13 @@ const Hero = () => {
                             <Typography color='primary.contrastText' variant='h2' textAlign='center' pb={4}> I'm a Full Stack Software Developer  </Typography>
                             <Grid container display='flex' justifyContent='center' spacing={3} pb={3}>
                                 <Grid size={{ xs: 12, md: 4 }} display='flex' justifyContent='center'>
-                                    <StyledButton onClick={() => }>
+                                    <StyledButton onClick={() => console.log('download')}>
                                         <DownloadIcon />
                                         <Typography>Download CV</Typography>
                                     </StyledButton>
                                 </Grid>
                                 <Grid size={{ xs: 12, md: 4 }} display='flex' justifyContent='center' >
-                                    <StyledButton onClick={() => }>
+                                    <StyledButton onClick={() => console.log('contact')}>
                                         <EmailIcon />
                                         <Typography>Contact me</Typography>
                                     </StyledButton>
