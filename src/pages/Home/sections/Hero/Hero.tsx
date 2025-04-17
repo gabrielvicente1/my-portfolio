@@ -9,7 +9,7 @@ const Hero = () => {
 
     const StyledHero = styled("div")(({ theme }) => ({
         backgroundColor: theme.palette.primary.main,
-        height: '100vh',
+        height: '120vh',
         display: 'flex',
         alignItems: 'center',
         [theme.breakpoints.up('xs')]: { // <= mobile
