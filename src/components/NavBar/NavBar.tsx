@@ -1,5 +1,10 @@
 import { AppBar, MenuItem, Toolbar, styled } from "@mui/material"
 
+const scrollToSection = (sectionId: string) => {
+  const section = document.getElementById(sectionId);
+  section?.scrollIntoView({ behavior: 'smooth' });
+};
+
 const NavBar = () => {
 
     const StyledToolBar = styled(Toolbar)(() => ({
@@ -11,9 +16,9 @@ const NavBar = () => {
       <>
         <AppBar position="absolute">
             <StyledToolBar>
-            <MenuItem>Sobre mim</MenuItem>
-            <MenuItem>Habilidades</MenuItem>
-            <MenuItem>Projetos</MenuItem>
+            <MenuItem onClick={() => scrollToSection('About')}>Sobre mim</MenuItem>
+            <MenuItem onClick={() => scrollToSection('Skills')}>Habilidades</MenuItem>
+            <MenuItem onClick={() => scrollToSection('Projects')}>Projetos</MenuItem>
             </StyledToolBar>
         </AppBar>
       </>

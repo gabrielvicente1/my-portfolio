@@ -1,6 +1,6 @@
-import { Box, Grid, Typography, Paper, styled } from '@mui/material';
+import { Box, Grid, Typography, Paper, styled, Divider } from '@mui/material';
 
-const StyledSection = styled(Box)(({ theme }) => ({
+const StyledSectionProjects = styled(Box)(({ theme }) => ({
   padding: theme.spacing(10, 2),
   backgroundColor: theme.palette.primary.main,
 }));
@@ -10,6 +10,10 @@ const StyledCard = styled(Paper)(({ theme }) => ({
   backgroundColor: '#1e1e1e',
   color: '#fff',
   borderRadius: theme.spacing(2),
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
 }));
 
 const ProjectImage = styled('img')({
@@ -21,27 +25,27 @@ const ProjectImage = styled('img')({
 const Projects = () => {
   const projects = [
     {
-      title: 'Ignite Social',
+      title: 'IGNITE SOCIAL',
       date: 'Março 2025 - Abril 2025',
       description:
         'O projeto Ignite Social é uma aplicação web desenvolvida com o objetivo de simular uma rede social. Construída utilizando React, TypeScript e Vite, a aplicação oferece funcionalidades típicas de plataformas sociais, como a criação e visualização de postagens, além de interações como comentários e reações. O projeto também incorpora práticas modernas de desenvolvimento, incluindo o uso de CSS-in-JS para estilização e componentes reutilizáveis.​.',
-      image: 'src/assets/images/ignite-social.png', // troque pela imagem real
+      image: 'src/assets/images/ignite-social.png',
       technologies: 'JavaScript, HTML, CSS, ReactJS, Vite',
     },
     {
-      title: 'Project Example',
-      date: 'Jul 2023 - Dez 2023',
+      title: 'IGNITE TRANSACTION',
+      date: 'Abril 2025 - Abril 2025',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porta semper velit vel rutrum...',
-      image: '/assets/project2.png', // troque pela imagem real
-      technologies: 'JavaScript, HTML, CSS, Canvas Graphics',
+        'O projeto Ignite Transactions é uma APIRESTful desenvolvida em NodeJS. Construída utilizando TypeScript, Fastify, Knex e Zod, a aplicação oferece  funcionalidades típicas de sistemas de controle financeiro, como criação, listagem e resumo de cada transação, onde a identificação de transações está sendo feita por cookies.​.',
+      image: 'src/assets/images/ignite-transactions.png', 
+      technologies: 'NodeJs, TypeScrips, Fastify, Knex, Zod',
     },
   ];
 
   return (
-    <StyledSection>
-      <Typography variant="h3" align="center" gutterBottom color="#fff">
-        Projects
+    <StyledSectionProjects id='Projects'>
+      <Typography variant="h3" align="center" gutterBottom color="#fff" paddingBottom={5}>
+        Projetos
       </Typography>
 
       <Grid container spacing={4} justifyContent="center">
@@ -53,17 +57,39 @@ const Projects = () => {
                 {project.date}
               </Typography>
               <ProjectImage src={project.image} alt={project.title} />
-              <Typography variant="body2" paddingBottom={1.5}>
+              <Typography variant="body2" paddingBottom={1.5} sx={{ fontSize: '1rem' }}>
                 {project.description}
               </Typography>
-              <Typography variant="body2" fontWeight="bold">
-                Technologies: <span style={{ color: '#ccc' }}>{project.technologies}</span>
+              <Typography variant="body2" fontWeight="bold" sx={{ fontSize: '1rem' }}>
+                Tecnologias: <span style={{ color: '#ccc' }}>{project.technologies}</span>
               </Typography>
             </StyledCard>
           </Grid>
         ))}
       </Grid>
-    </StyledSection>
+      <Divider sx={{ my: 8, bgcolor: '#fff', opacity: 0.2 }} />
+      <footer id='contact'>
+  <Box mt={10} textAlign="center" color="#ccc">
+    <Typography variant="body1" gutterBottom>
+      Gabriel Vicente • Full Stack Developer
+    </Typography>
+    <Typography variant="body2">
+      📧 gabriel.vicentee.dev@gmail.com
+    </Typography>
+    <Typography variant="body2">
+      💼 <a href="https://www.linkedin.com/in/gabriel-vicente-8a6b71266/" target="_blank" rel="noopener noreferrer" style={{ color: '#ccc', textDecoration: 'underline' }}>
+        LinkedIn
+      </a>{' '} | {' '}
+      📁 <a href="https://github.com/gabrielvicente1" target="_blank" rel="noopener noreferrer" style={{ color: '#ccc', textDecoration: 'underline' }}>
+        GitHub
+      </a>
+    </Typography>
+    <Typography variant="caption" display="block" mt={2}>
+      © {new Date().getFullYear()} Gabriel Vicente. Todos os direitos reservados.
+    </Typography>
+  </Box>
+</footer>
+    </StyledSectionProjects>
   );
 };
 

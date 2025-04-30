@@ -1,4 +1,4 @@
-import { Box, Chip, Grid, Typography, styled, Paper } from '@mui/material';
+import { Box, Chip, Grid, Typography, styled } from '@mui/material';
 import InfoCard from '../../../../components/InfoCard/InfoCard';
 
 const StyledSectionAbout = styled(Box)(({ theme }) => ({
@@ -7,16 +7,11 @@ const StyledSectionAbout = styled(Box)(({ theme }) => ({
   textAlign: 'center',
 }));
 
-const StyledCard = styled(Paper)(({ theme }) => ({
-  padding: theme.spacing(4),
-  borderRadius: theme.spacing(2),
-  boxShadow: theme.shadows[3],
-}));    
-
 const SkillsSectionSkills = styled(Box)(({ theme }) => ({
     padding: theme.spacing(10, 2),
     textAlign: 'center',
     backgroundColor: theme.palette.background.paper,
+    cursor: 'pointer'
   }));
 
 const skills = [
@@ -26,7 +21,7 @@ const skills = [
 
 const AboutMe = () => {
   return (
-    <StyledSectionAbout>
+    <StyledSectionAbout id='About'>
       <Typography variant="h3" gutterBottom>
         Sobre mim
       </Typography>
@@ -59,23 +54,32 @@ const AboutMe = () => {
       </Typography>
 
 
-      <SkillsSectionSkills>
-      <Typography variant="h3" gutterBottom>
-        Habilidades
-      </Typography>
-      <Grid container spacing={2} justifyContent="center" mt={2}>
-        {skills.map((skill) => (
-          <Grid key={skill}>
-            <Chip
-              label={skill}
-              variant="outlined"
-              color="primary"
-              sx={{ fontSize: '1rem', padding: '0.5rem 1rem' }}
-            />
-          </Grid>
-        ))}
+      <SkillsSectionSkills id='Skills'>
+  <Typography variant="h3" gutterBottom paddingBottom={5}>
+    Habilidades
+  </Typography>
+  <Grid container spacing={2} justifyContent="center" mt={2}>
+    {skills.map((skill) => (
+      <Grid key={skill}>
+        <Chip
+          label={skill}
+          variant="outlined"
+          color="primary"
+          sx={{
+            fontSize: '1rem',
+            padding: '0.5rem 1rem',
+            transition: 'all 0.3s ease',
+            '&:hover': {
+              backgroundColor: 'primary.main',
+              color: 'white',
+              borderColor: 'primary.main',
+            },
+          }}
+        />
       </Grid>
-      </SkillsSectionSkills>
+    ))}
+  </Grid>
+</SkillsSectionSkills>
     </StyledSectionAbout>
   );
 };
